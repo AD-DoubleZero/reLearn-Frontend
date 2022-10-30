@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <div id="modal">
+      <div
+        id="modal-bg"
+        class="fixed z-40 top-0 left-0 w-screen h-screen bg-[black] opacity-0 pointer-events-none transition-all duration-700 ease-in-out"
+        data-close="true"
+      >
+        <div
+          id="modal-card"
+          class="card absolute z-50 w-full sm:w-3/5 bg-panel top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-0 transition-transform duration-200 ease-in-out"
+        ></div>
+      </div>
+    </div>
+  </body>
+</html>

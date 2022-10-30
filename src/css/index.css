@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), url(../font/Roboto-Regular.ttf) format('ttf');
+}
+
+@tailwind utilities;
+
+@import "./hint.min.css";
+
+@layer base {
+  body {
+    @apply bg-body;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    @apply text-text font-semibold;
+  }
+
+  .input, .select {
+    @apply w-full h-[38px] py-1 px-2 rounded outline-none transition-[border] duration-200 ease-in-out border-2 border-transparent
+  }
+  .input:focus, .select:focus {
+    @apply border-link
+  }
+
+  .text {
+    @apply text-text;
+  }
+
+  .cont {
+    @apply px-4 max-w-7xl mx-auto;
+  }
+
+  .card {
+    @apply bg-panel rounded-md mt-2 p-4;
+  }
+}
+
+/* modal anim */
+#modal .modal-active {
+  @apply opacity-60 pointer-events-auto
+}
+#modal .modal-active #modal-card {
+  @apply scale-100
+}
+
+/* checkbox & radio */
+.checkbox input, .radio input {
+  @apply h-0 w-0 absolute -left-[99999px]
+}
+.checkbox label, .radio label {
+  @apply
+        text
+        block
+        relative
+        pl-7
+        cursor-pointer
+}
+.checkbox label::before, .radio label::before {
+  @apply
+        content-[""]
+        absolute
+        left-0
+        top-[3px]
+        w-4
+        h-4
+        bg-[white]
+        border-2
+        border-transparent
+        transition-all
+        duration-200
+        ease-in-out
+}
+.checkbox label::before {
+  @apply rounded
+}
+.radio label::before  {
+  @apply rounded-full
+}
+.checkbox label::after, .radio label::after {
+  @apply
+        content-[""]
+        absolute
+        transition-all
+        duration-200
+        ease-in-out
+        opacity-0
+}
+.checkbox label::after {
+  @apply
+      border-secondary
+        left-[3px]
+        top-[8px]
+        w-[10px]
+        h-[5px]
+        rounded-sm
+        border-l-2
+        border-b-2
+        -rotate-45
+}
+.radio label::after  {
+  @apply
+        bg-button
+        rounded-full
+        left-0
+        top-[3px]
+        w-4
+        h-4
+        aspect-square
+        border
+        border-[white]
+}
+.checkbox input:checked + label::before {
+  @apply
+      bg-button
+}
+.checkbox input:checked + label::after,
+.radio input:checked + label::after {
+  @apply
+        opacity-100
+}
+
+/* spinner Fabio Ottaviani */
+.spinner {
+  -webkit-animation: rotate 2s linear infinite;
+          animation: rotate 2s linear infinite;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -16px 0 0 -16px;
+  height: 38px;
+  aspect-ratio: 1 / 1;
+}
+.spinner .path {
+  stroke: var(--tg-theme-button-color);
+  stroke-linecap: round;
+  -webkit-animation: dash 1.5s ease-in-out infinite;
+          animation: dash 1.5s ease-in-out infinite;
+}
+@-webkit-keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
